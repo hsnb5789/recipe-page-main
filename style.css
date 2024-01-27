@@ -1,0 +1,275 @@
+@font-face {
+    font-family: outfit;
+    src: url(./assets/fonts/outfit/Outfit-VariableFont_wght.ttf);
+}
+
+@font-face {
+    font-family: young-serif;
+    src: url(./assets/fonts/young-serif/YoungSerif-Regular.ttf);
+}
+
+:root {
+    /* ### Primary  */
+    --Nutmeg: hsl(14, 45%, 36%);
+    --Dark_Raspberry: hsl(332, 51%, 32%);
+
+
+    /* ### Neutral */
+
+    --White: hsl(0, 0%, 100%);
+    --Rose_White: hsl(330, 100%, 98%);
+    --Eggshell: hsl(30, 54%, 90%);
+    --Light_Grey: hsl(30, 18%, 87%);
+    --Wenge_Brown: hsl(30, 10%, 34%);
+    --Dark_Charcoal: hsl(24, 5%, 18%);
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    background-color: var(--Eggshell);
+}
+
+body {
+    font-family: outfit;
+    display: flex;
+    flex-direction: column;
+    place-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    min-width: 320px;
+    max-width: 700px;
+    height: 100%;
+    background-color: var(--White);
+    padding: 40px;
+    border-radius: 12px;
+    gap: 1rem;
+    margin: 8rem auto;
+}
+
+.mainImage {
+    width: 100%;
+    height: auto;
+    display: flex;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.mainImage img {
+    object-fit: scale-down;
+    width: inherit;
+    height: inherit;
+}
+
+.mainHeading {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.heading {
+    font-family: young-serif;
+}
+
+.mainHeading>h1 {
+    font-size: 38px;
+    font-weight: 400;
+}
+
+.mainHeading p {
+    font-size: 15px;
+    color: var(--Wenge_Brown);
+}
+
+.duration {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.6rem;
+    background-color: var(--Rose_White);
+    padding: 20px;
+    width: 100%;
+    border-radius: 10px;
+}
+
+.duration p {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--Dark_Raspberry);
+    margin-left: 15px;
+}
+
+.duration ul>li {
+    margin-top: 0.5rem;
+    font-weight: 400;
+    margin-left: 30px;
+    color: var(--Wenge_Brown);
+}
+
+.duration ul li p {
+    font: unset;
+    color: unset;
+}
+
+.duration ul li::marker {
+    font-size: 15px;
+    color: var(--Dark_Raspberry);
+}
+
+.hilight {
+    font-weight: 700;
+    color: var(--Wenge_Brown);
+}
+
+.ingredients,
+.instructions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    border-bottom: 1.5px solid var(--Light_Grey);
+    width: 100%;
+    padding-bottom: 1.5rem;
+}
+
+.ingredients h1,
+.instructions h1,
+.nutrition h1 {
+    font-weight: 400;
+    color: var(--Nutmeg);
+}
+
+.ingredients ul,
+.instructions ol {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding-left: 20px;
+    line-height: 1.5;
+}
+
+.ingredients ul li {
+    font-weight: 400;
+    font-size: 15px;
+    color: var(--Wenge_Brown);
+    list-style: square;
+}
+
+.ingredients ul li::marker {
+    font-size: 14px;
+    color: var(--Dark_Raspberry);
+}
+
+.ingredients ul li p {
+    margin: 0 15px;
+}
+
+.instructions ol li {
+    font-weight: 400;
+    font-size: 15px;
+    color: var(--Wenge_Brown);
+}
+
+.instructions ol li p {
+    margin: 0 15px;
+}
+
+.instructions ol li::marker {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--Dark_Raspberry);
+}
+
+.nutrition {
+    display: grid;
+    gap: 0.8rem;
+    width: 100%;
+}
+
+.nutrition p {
+    font-size: 14px;
+    font-weight: 600px;
+    color: var(--Wenge_Brown);
+    margin-top: 0.5rem;
+}
+
+.table {
+    display: block;
+}
+
+.rows.bottom {
+    border-bottom: 1px solid var(--Light_Grey);
+}
+
+.rows p {
+    display: grid;
+    align-items: center;
+    margin: 5px 25px 5px 70px;
+}
+
+.space-even {
+    grid-template-columns: 1fr 1fr;
+    justify-content: space-between;
+    display: grid;
+    align-items: center;
+    max-width: 400px;
+    min-width: 250px;
+}
+
+span.textPositionLeft {
+    color: var(--Dark_Raspberry);
+    font-weight: bold;
+    text-align: start;
+}
+
+@media (max-width:450px) {
+    body {
+        transition: 5s top ease-in-out;
+    }
+
+    .container {
+        padding: 0;
+        border-radius: unset;
+        margin: 0 auto 1rem;
+        align-items: center;
+    }
+
+    .mainImage {
+        border-radius: 0;
+    }
+
+    .mainHeading>h1 {
+        font-size: 32px;
+    }
+
+    .mainHeading,
+    .duration,
+    .ingredients,
+    .nutrition,
+    .instructions {
+        width: 320px;
+        font-size: 90%;
+    }
+
+    .nutrition {
+        margin-bottom: 40px;
+    }
+
+    .nutrition p {
+        padding-right: 40px;
+    }
+
+    .rows p {
+        margin: 5px 5px 5px 25px;
+    }
+}
